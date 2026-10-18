@@ -1,0 +1,26 @@
+{
+  "name": "framecraft",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Framecraft scene contracts and WebGL renderer",
+  "scripts": {
+    "dev": "vite --host 0.0.0.0",
+    "build": "vite build",
+    "preview": "vite preview",
+    "test": "node --test tests/*.test.js",
+    "test:watch": "node --test --watch tests/*.test.js",
+    "check": "npm run test && npm run build",
+    "validate:scene": "node scripts/validate-scene.mjs",
+    "assets:hdri": "node scripts/download-hdri.mjs"
+  },
+  "dependencies": {
+    "three": "0.180.0",
+    "zod": "4.1.0"
+  },
+  "devDependencies": {
+    "vite": "7.1.0"
+  },
+  "engines": {"node": ">=20.19.0"},
+  "license": "UNLICENSED"
+}

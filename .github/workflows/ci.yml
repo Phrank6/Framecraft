@@ -1,0 +1,22 @@
+name: Framecraft contracts and renderer checks
+on:
+  push:
+    branches: [main, master, 'feat/**']
+  pull_request:
+jobs:
+  checks:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Install dependencies
+        run: npm install --no-audit --no-fund
+      - name: Test contracts and graph references
+        run: npm test
+      - name: Validate canonical scene
+        run: npm run validate:scene
+      - name: Build production UI
+        run: npm run build

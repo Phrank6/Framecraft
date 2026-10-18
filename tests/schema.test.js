@@ -1,0 +1,41 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import { cafeProject } from '../src/data/cafe.scene.js';
+import { validateProject } from '../src/schema/project.schema.js';
+import { BibleSchema } from '../src/schema/bible.schema.js';
+import { ShotSchema } from '../src/schema/shot.schema.js';
+import { CharacterSpecSchema } from '../src/schema/character.schema.js';
+import { AssetManifestSchema } from '../src/schema/asset.schema.js';
+import { SceneLayoutSchema } from '../src/schema/layout.schema.js';
+import { TimelineSchema } from '../src/schema/timeline.schema.js';
+const copy = () => structuredClone(cafeProject);
+const expectIssue = (input, word) => {
+    const result = validateProject(input);
+    assert.equal(result.success, false, 'Expected validation failure');
+    assert.ok(result.errors.some(error => `${error.path} ${error.message}`.includes(word)), JSON.stringify(result.errors, null, 2));
+};
+test('complete canonical café sample validates', () => {
+    const result = validateProject(cafeProject);
+    assert.equal(result.success, true, JSON.stringify(result.errors));
+});
+test('each individual contract parses', () => {
+    assert.ok(BibleSchema.safeParse(cafeProject.bible).success);
+    assert.ok(ShotSchema.safeParse(cafeProject.shots[0]).success);
+    assert.ok(CharacterSpecSchema.safeParse(cafeProject.character_specs[0]).success);
+    assert.ok(AssetManifestSchema.safeParse(cafeProject.asset_manifest).success);
+    assert.ok(SceneLayoutSchema.safeParse(cafeProject.scene_layouts[0]).success);
+    assert.ok(TimelineSchema.safeParse(cafeProject.timeline).success);
+});
+test('rejects missing character reference', () => { const p = copy(); p.shots[0].character_ids.push('char_missing'); expectIssue(p, 'Unknown character reference'); });
+test('rejects missing asset reference', () => { const p = copy(); p.scene_layouts[0].instances[0].asset_id = 'asset_ghost'; expectIssue(p, 'Unknown asset reference'); });
+test('rejects missing action reference', () => { const p = copy(); p.timeline.events[0].action_id = 'action_fake'; expectIssue(p, 'Unknown action reference'); });
+test('rejects missing camera pose for shot', () => { const p = copy(); p.scene_layouts[0].camera_poses.pop(); expectIssue(p, 'Missing camera pose'); });
+test('rejects duplicate IDs', () => { const p = copy(); p.asset_manifest.assets[1].id = p.asset_manifest.assets[0].id; expectIssue(p, 'Duplicate asset ID'); });
+test('rejects inconsistent clip duration', () => { const p = copy(); p.timeline.clips[0].duration_seconds = 3.8; expectIssue(p, 'Clip duration differs'); });
+test('rejects overlapping clips', () => { const p = copy(); p.timeline.clips[1].start_seconds = 3.5; expectIssue(p, 'overlaps'); });
+test('rejects scene units other than meters', () => { const p = copy(); p.scene_layouts[0].units = 'cm'; expectIssue(p, 'units'); });
+test('rejects negative character height', () => { const p = copy(); p.character_specs[0].height_m = -1; expectIssue(p, 'height_m'); });
+test('rejects incorrect stable ID prefix', () => { const p = copy(); p.bible.characters[0].id = 'maya'; expectIssue(p, 'stable char_'); });
+test('rejects line_number beyond source length', () => { const p = copy(); p.bible.characters[0].line_number = 99; expectIssue(p, 'exceeds total_lines'); });
+test('rejects an invalid camera/shot scene pairing', () => { const p = copy(); p.scene_layouts[0].camera_poses[0].shot_id = 'shot_unknown'; expectIssue(p, 'Unknown shot reference'); });
+test('JSON serialization stays parseable', () => { assert.equal(validateProject(JSON.parse(JSON.stringify(cafeProject))).success, true); });
