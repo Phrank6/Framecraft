@@ -1,0 +1,17 @@
+{
+  "name": "framecraft",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "test": "vitest run",
+    "dev": "vite"
+  },
+  "dependencies": {
+    "three": "^0.169.0"
+  },
+  "devDependencies": {
+    "vite": "^5.4.0",
+    "vitest": "^2.1.0"
+  }
+}
