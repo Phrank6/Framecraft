@@ -1,0 +1,816 @@
+{
+  "version": "1.0.0",
+  "bible": {
+    "script_id": "script_morning_coffee",
+    "format": "PlainText",
+    "total_lines": 15,
+    "scenes": [
+      {
+        "id": "scene_cafe",
+        "location": "Neighborhood café",
+        "interior_exterior": "INT",
+        "time_of_day": "morning",
+        "character_ids": [
+          "char_maya",
+          "char_leo"
+        ],
+        "prop_ids": [
+          "prop_mug",
+          "prop_table"
+        ],
+        "line_number": 1,
+        "tag": "STATED"
+      }
+    ],
+    "characters": [
+      {
+        "id": "char_maya",
+        "name": "Maya",
+        "line_number": 2,
+        "tag": "STATED"
+      },
+      {
+        "id": "char_leo",
+        "name": "Leo",
+        "line_number": 3,
+        "tag": "STATED"
+      }
+    ],
+    "props": [
+      {
+        "id": "prop_mug",
+        "name": "Ceramic coffee cup",
+        "line_number": 7,
+        "tag": "STATED"
+      },
+      {
+        "id": "prop_table",
+        "name": "Round oak café table",
+        "line_number": 6,
+        "tag": "STATED"
+      }
+    ],
+    "actions": [
+      {
+        "id": "action_maya_enters",
+        "scene_id": "scene_cafe",
+        "character_ids": [
+          "char_maya"
+        ],
+        "prop_ids": [],
+        "description": "Maya enters the café and takes her place by the window.",
+        "line_number": 4,
+        "tag": "STATED"
+      },
+      {
+        "id": "action_maya_lifts_cup",
+        "scene_id": "scene_cafe",
+        "character_ids": [
+          "char_maya"
+        ],
+        "prop_ids": [
+          "prop_mug"
+        ],
+        "description": "Maya reaches for her coffee and smiles.",
+        "line_number": 9,
+        "tag": "STATED"
+      }
+    ],
+    "emotions": [
+      {
+        "id": "emotion_maya_relief",
+        "scene_id": "scene_cafe",
+        "character_id": "char_maya",
+        "emotion": "calm",
+        "reason": "A quiet morning after a busy week",
+        "line_number": 8,
+        "tag": "INFERRED"
+      }
+    ],
+    "story_beats": [
+      {
+        "beat_id": "beat_arrival",
+        "scene_id": "scene_cafe",
+        "description": "A small, reassuring pause in the morning.",
+        "line_number": 4,
+        "tag": "INFERRED"
+      }
+    ]
+  },
+  "character_specs": [
+    {
+      "id": "char_maya",
+      "asset_id": "asset_maya",
+      "display_name": "Maya",
+      "height_m": 1.68,
+      "description": "Ochre jumper, dark hair, warm skin",
+      "rig": "static",
+      "palette": {
+        "skin": "#bf8364",
+        "clothes": "#cd7c48",
+        "accent": "#332b32"
+      }
+    },
+    {
+      "id": "char_leo",
+      "asset_id": "asset_leo",
+      "display_name": "Leo",
+      "height_m": 1.78,
+      "description": "Café attendant in a dark apron",
+      "rig": "static",
+      "palette": {
+        "skin": "#c79174",
+        "clothes": "#47615a",
+        "accent": "#242a30"
+      }
+    }
+  ],
+  "asset_manifest": {
+    "id": "manifest_cafe",
+    "assets": [
+      {
+        "id": "asset_maya",
+        "label": "Maya — stylized character",
+        "category": "character",
+        "source": {
+          "kind": "procedural",
+          "generator": "avatar"
+        },
+        "material": {
+          "color": "#c9845e",
+          "roughness": 0.56,
+          "metalness": 0
+        }
+      },
+      {
+        "id": "asset_leo",
+        "label": "Leo — stylized character",
+        "category": "character",
+        "source": {
+          "kind": "procedural",
+          "generator": "avatar"
+        },
+        "material": {
+          "color": "#5d6a64",
+          "roughness": 0.56,
+          "metalness": 0
+        }
+      },
+      {
+        "id": "asset_floor",
+        "label": "Stone floor",
+        "category": "environment",
+        "source": {
+          "kind": "procedural",
+          "generator": "floor"
+        },
+        "material": {
+          "color": "#8e8277",
+          "roughness": 0.56,
+          "metalness": 0
+        }
+      },
+      {
+        "id": "asset_architecture",
+        "label": "Café walls, door and windows",
+        "category": "architecture",
+        "source": {
+          "kind": "procedural",
+          "generator": "architecture"
+        },
+        "material": {
+          "color": "#dfd2bc",
+          "roughness": 0.56,
+          "metalness": 0
+        }
+      },
+      {
+        "id": "asset_table",
+        "label": "Oak café table",
+        "category": "prop",
+        "source": {
+          "kind": "procedural",
+          "generator": "cafe-table"
+        },
+        "material": {
+          "color": "#906344",
+          "roughness": 0.56,
+          "metalness": 0
+        }
+      },
+      {
+        "id": "asset_chair",
+        "label": "Bentwood café chair",
+        "category": "prop",
+        "source": {
+          "kind": "procedural",
+          "generator": "cafe-chair"
+        },
+        "material": {
+          "color": "#81614d",
+          "roughness": 0.56,
+          "metalness": 0
+        }
+      },
+      {
+        "id": "asset_mug",
+        "label": "Glazed ceramic coffee cup",
+        "category": "prop",
+        "source": {
+          "kind": "procedural",
+          "generator": "ceramic-mug"
+        },
+        "material": {
+          "color": "#ece0cc",
+          "roughness": 0.56,
+          "metalness": 0
+        }
+      },
+      {
+        "id": "asset_counter",
+        "label": "Wood counter",
+        "category": "environment",
+        "source": {
+          "kind": "procedural",
+          "generator": "counter"
+        },
+        "material": {
+          "color": "#704d39",
+          "roughness": 0.56,
+          "metalness": 0
+        }
+      },
+      {
+        "id": "asset_plant",
+        "label": "Houseplant in clay pot",
+        "category": "environment",
+        "source": {
+          "kind": "procedural",
+          "generator": "plant"
+        },
+        "material": {
+          "color": "#5c7752",
+          "roughness": 0.56,
+          "metalness": 0
+        }
+      },
+      {
+        "id": "asset_pendant",
+        "label": "Pendant ceiling light",
+        "category": "light-fixture",
+        "source": {
+          "kind": "procedural",
+          "generator": "pendant"
+        },
+        "material": {
+          "color": "#f2d6a8",
+          "roughness": 0.56,
+          "metalness": 0
+        }
+      },
+      {
+        "id": "asset_display",
+        "label": "Pastry display",
+        "category": "prop",
+        "source": {
+          "kind": "procedural",
+          "generator": "pastry-display"
+        },
+        "material": {
+          "color": "#ac875a",
+          "roughness": 0.56,
+          "metalness": 0
+        }
+      },
+      {
+        "id": "asset_shelf",
+        "label": "Coffee supplies shelves",
+        "category": "environment",
+        "source": {
+          "kind": "procedural",
+          "generator": "shelf"
+        },
+        "material": {
+          "color": "#8f6348",
+          "roughness": 0.56,
+          "metalness": 0
+        }
+      },
+      {
+        "id": "asset_art",
+        "label": "Wall art",
+        "category": "environment",
+        "source": {
+          "kind": "procedural",
+          "generator": "wall-art"
+        },
+        "material": {
+          "color": "#bd8c72",
+          "roughness": 0.56,
+          "metalness": 0
+        }
+      },
+      {
+        "id": "asset_saucer",
+        "label": "Saucer",
+        "category": "prop",
+        "source": {
+          "kind": "procedural",
+          "generator": "cup-saucer"
+        },
+        "material": {
+          "color": "#e1d5c1",
+          "roughness": 0.56,
+          "metalness": 0
+        }
+      }
+    ]
+  },
+  "scene_layouts": [
+    {
+      "id": "layout_cafe",
+      "scene_id": "scene_cafe",
+      "units": "meters",
+      "coordinate_system": "right-handed-y-up",
+      "instances": [
+        {
+          "id": "instance_floor",
+          "asset_id": "asset_floor",
+          "entity_type": "environment",
+          "transform": {
+            "position": [
+              0,
+              -0.04,
+              0
+            ],
+            "rotation_deg": [
+              0,
+              0,
+              0
+            ],
+            "scale": [
+              1,
+              1,
+              1
+            ]
+          }
+        },
+        {
+          "id": "instance_arch",
+          "asset_id": "asset_architecture",
+          "entity_type": "environment",
+          "transform": {
+            "position": [
+              0,
+              0,
+              0
+            ],
+            "rotation_deg": [
+              0,
+              0,
+              0
+            ],
+            "scale": [
+              1,
+              1,
+              1
+            ]
+          }
+        },
+        {
+          "id": "instance_table",
+          "asset_id": "asset_table",
+          "entity_type": "prop",
+          "entity_id": "prop_table",
+          "transform": {
+            "position": [
+              -0.55,
+              0,
+              0.7
+            ],
+            "rotation_deg": [
+              0,
+              0,
+              0
+            ],
+            "scale": [
+              1,
+              1,
+              1
+            ]
+          }
+        },
+        {
+          "id": "instance_chair_maya",
+          "asset_id": "asset_chair",
+          "entity_type": "environment",
+          "transform": {
+            "position": [
+              -1.48,
+              0,
+              1.35
+            ],
+            "rotation_deg": [
+              0,
+              45,
+              0
+            ],
+            "scale": [
+              1,
+              1,
+              1
+            ]
+          }
+        },
+        {
+          "id": "instance_chair_guest",
+          "asset_id": "asset_chair",
+          "entity_type": "environment",
+          "transform": {
+            "position": [
+              0.43,
+              0,
+              1.24
+            ],
+            "rotation_deg": [
+              0,
+              -35,
+              0
+            ],
+            "scale": [
+              1,
+              1,
+              1
+            ]
+          }
+        },
+        {
+          "id": "instance_mug",
+          "asset_id": "asset_mug",
+          "entity_type": "prop",
+          "entity_id": "prop_mug",
+          "transform": {
+            "position": [
+              -0.37,
+              0.94,
+              0.64
+            ],
+            "rotation_deg": [
+              0,
+              15,
+              0
+            ],
+            "scale": [
+              1,
+              1,
+              1
+            ]
+          }
+        },
+        {
+          "id": "instance_saucer",
+          "asset_id": "asset_saucer",
+          "entity_type": "environment",
+          "transform": {
+            "position": [
+              -0.37,
+              0.923,
+              0.64
+            ],
+            "rotation_deg": [
+              0,
+              0,
+              0
+            ],
+            "scale": [
+              1,
+              1,
+              1
+            ]
+          }
+        },
+        {
+          "id": "instance_maya",
+          "asset_id": "asset_maya",
+          "entity_type": "character",
+          "entity_id": "char_maya",
+          "transform": {
+            "position": [
+              -1.48,
+              0,
+              1.38
+            ],
+            "rotation_deg": [
+              0,
+              42,
+              0
+            ],
+            "scale": [
+              1,
+              1,
+              1
+            ]
+          }
+        },
+        {
+          "id": "instance_leo",
+          "asset_id": "asset_leo",
+          "entity_type": "character",
+          "entity_id": "char_leo",
+          "transform": {
+            "position": [
+              2.4,
+              0,
+              -1.45
+            ],
+            "rotation_deg": [
+              0,
+              -45,
+              0
+            ],
+            "scale": [
+              1,
+              1,
+              1
+            ]
+          }
+        },
+        {
+          "id": "instance_counter",
+          "asset_id": "asset_counter",
+          "entity_type": "environment",
+          "transform": {
+            "position": [
+              2.25,
+              0,
+              -1
+            ],
+            "rotation_deg": [
+              0,
+              0,
+              0
+            ],
+            "scale": [
+              1,
+              1,
+              1
+            ]
+          }
+        },
+        {
+          "id": "instance_display",
+          "asset_id": "asset_display",
+          "entity_type": "environment",
+          "transform": {
+            "position": [
+              1.6,
+              1.13,
+              -1.02
+            ],
+            "rotation_deg": [
+              0,
+              0,
+              0
+            ],
+            "scale": [
+              1,
+              1,
+              1
+            ]
+          }
+        },
+        {
+          "id": "instance_plant_window",
+          "asset_id": "asset_plant",
+          "entity_type": "environment",
+          "transform": {
+            "position": [
+              -3.15,
+              0,
+              -2.1
+            ],
+            "rotation_deg": [
+              0,
+              0,
+              0
+            ],
+            "scale": [
+              1,
+              1,
+              1
+            ]
+          }
+        },
+        {
+          "id": "instance_plant_front",
+          "asset_id": "asset_plant",
+          "entity_type": "environment",
+          "transform": {
+            "position": [
+              3.4,
+              0,
+              2.55
+            ],
+            "rotation_deg": [
+              0,
+              30,
+              0
+            ],
+            "scale": [
+              0.65,
+              0.75,
+              0.65
+            ]
+          }
+        },
+        {
+          "id": "instance_pendant_left",
+          "asset_id": "asset_pendant",
+          "entity_type": "environment",
+          "transform": {
+            "position": [
+              -1.05,
+              0,
+              0.2
+            ],
+            "rotation_deg": [
+              0,
+              0,
+              0
+            ],
+            "scale": [
+              1,
+              1,
+              1
+            ]
+          }
+        },
+        {
+          "id": "instance_pendant_right",
+          "asset_id": "asset_pendant",
+          "entity_type": "environment",
+          "transform": {
+            "position": [
+              2.35,
+              0,
+              -0.8
+            ],
+            "rotation_deg": [
+              0,
+              0,
+              0
+            ],
+            "scale": [
+              1,
+              1,
+              1
+            ]
+          }
+        },
+        {
+          "id": "instance_shelf",
+          "asset_id": "asset_shelf",
+          "entity_type": "environment",
+          "transform": {
+            "position": [
+              2.2,
+              0,
+              -3.45
+            ],
+            "rotation_deg": [
+              0,
+              0,
+              0
+            ],
+            "scale": [
+              1,
+              1,
+              1
+            ]
+          }
+        },
+        {
+          "id": "instance_art",
+          "asset_id": "asset_art",
+          "entity_type": "environment",
+          "transform": {
+            "position": [
+              0.1,
+              0,
+              -3.62
+            ],
+            "rotation_deg": [
+              0,
+              0,
+              0
+            ],
+            "scale": [
+              1,
+              1,
+              1
+            ]
+          }
+        }
+      ],
+      "camera_poses": [
+        {
+          "id": "camera_wide",
+          "shot_id": "shot_01",
+          "position": [
+            6.7,
+            3.7,
+            8.2
+          ],
+          "target": [
+            0.15,
+            1.25,
+            -0.45
+          ],
+          "fov_deg": 39
+        },
+        {
+          "id": "camera_close",
+          "shot_id": "shot_02",
+          "position": [
+            1.6,
+            2.18,
+            4.12
+          ],
+          "target": [
+            -0.86,
+            1.18,
+            0.69
+          ],
+          "fov_deg": 34
+        }
+      ]
+    }
+  ],
+  "shots": [
+    {
+      "id": "shot_01",
+      "scene_id": "scene_cafe",
+      "character_ids": [
+        "char_maya",
+        "char_leo"
+      ],
+      "prop_ids": [
+        "prop_mug",
+        "prop_table"
+      ],
+      "description": "Wide establishing shot — an inviting neighborhood café at golden hour.",
+      "focal_length_mm": 35,
+      "duration_seconds": 4,
+      "line_number": 1,
+      "tag": "INFERRED"
+    },
+    {
+      "id": "shot_02",
+      "scene_id": "scene_cafe",
+      "character_ids": [
+        "char_maya"
+      ],
+      "prop_ids": [
+        "prop_mug"
+      ],
+      "description": "Medium shot — Maya and her first morning coffee.",
+      "focal_length_mm": 50,
+      "duration_seconds": 4,
+      "line_number": 9,
+      "tag": "INFERRED"
+    }
+  ],
+  "timeline": {
+    "id": "timeline_morning_coffee",
+    "fps": 24,
+    "duration_seconds": 8,
+    "clips": [
+      {
+        "id": "clip_establishing",
+        "shot_id": "shot_01",
+        "start_seconds": 0,
+        "duration_seconds": 4
+      },
+      {
+        "id": "clip_maya",
+        "shot_id": "shot_02",
+        "start_seconds": 4,
+        "duration_seconds": 4
+      }
+    ],
+    "events": [
+      {
+        "id": "event_enters",
+        "action_id": "action_maya_enters",
+        "start_seconds": 0,
+        "duration_seconds": 2
+      },
+      {
+        "id": "event_lifts_cup",
+        "action_id": "action_maya_lifts_cup",
+        "start_seconds": 5.5,
+        "duration_seconds": 1.4
+      }
+    ]
+  }
+}
